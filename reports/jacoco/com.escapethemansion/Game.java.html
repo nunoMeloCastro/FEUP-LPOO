@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Game.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">escapethemansion$.exec</a> &gt; <a href="index.source.html" class="el_package">com.escapethemansion</a> &gt; <span class="el_source">Game.java</span></div><h1>Game.java</h1><pre class="source lang-java linenums">package com.escapethemansion;
+
+import com.escapethemansion.gui.LanternaGUI;
+
+import com.escapethemansion.model.game.floor.FloorBuilder;
+import FloorViewer;
+import com.escapethemansion.model.game.floor.Floor;
+import com.escapethemansion.controller.game.FloorController;
+
+import java.awt.*;
+import java.io.IOException;
+import java.net.URISyntaxException;
+
+<span class="nc" id="L14">public class Game {</span>
+
+    public static void main(String[] args) throws IOException, URISyntaxException, FontFormatException {
+<span class="nc" id="L17">        System.out.println(&quot;Starting the com.escapethemansion.Game!&quot;);</span>
+
+<span class="nc" id="L19">        LanternaGUI gui = new LanternaGUI(40, 30);</span>
+<span class="nc" id="L20">        gui.drawWindow();</span>
+
+<span class="nc" id="L22">        Floor basement = new FloorBuilder(&quot;src/main/resources/floors/basement.map&quot;).createFloor();</span>
+<span class="nc" id="L23">        FloorViewer floorViewer = new FloorViewer(gui);</span>
+<span class="nc" id="L24">        FloorController controller = new FloorController(basement, floorViewer);</span>
+
+<span class="nc" id="L26">        controller.start();</span>
+
+//        //for mouse clicks
+//        ((AWTTerminalFrame)terminal).getComponent(0).addMouseListener(new MouseAdapter() {
+//            @Override
+//            public void mouseClicked(MouseEvent e) {
+//                System.out.println(&quot;MC: &quot; + e.getX() + &quot;, &quot; + e.getY());
+//            }
+//        });
+
+<span class="nc" id="L36">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>FloorControllerTest.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">escapethemansion$.exec</a> &gt; <a href="index.source.html" class="el_package">com.escapethemansion.controller</a> &gt; <span class="el_source">FloorControllerTest.java</span></div><h1>FloorControllerTest.java</h1><pre class="source lang-java linenums">package com.escapethemansion.controller;
+
+import com.escapethemansion.gui.LanternaGUI;
+import com.escapethemansion.model.game.floor.Floor;
+import com.escapethemansion.model.game.floor.FloorBuilder;
+import FloorViewer;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import java.awt.*;
+import java.io.IOException;
+import java.net.URISyntaxException;
+
+<span class="fc" id="L16">public class FloorControllerTest {</span>
+
+    private FloorController floorController;
+
+    @BeforeEach
+    void setup() throws IOException, URISyntaxException, FontFormatException {
+<span class="fc" id="L22">        Floor floor = new FloorBuilder(&quot;src/test/resources/floors/floor.map&quot;).createFloor();</span>
+<span class="fc" id="L23">        LanternaGUI gui = new LanternaGUI(40, 30);</span>
+<span class="fc" id="L24">        FloorViewer viewer = new FloorViewer(gui);</span>
+<span class="fc" id="L25">        this.floorController = new FloorController(floor, viewer);</span>
+<span class="fc" id="L26">    }</span>
+
+    @Test
+    void getPlayerController() throws IOException, URISyntaxException, FontFormatException {
+<span class="fc" id="L30">        Floor f = new FloorBuilder(&quot;src/test/resources/floors/floor.map&quot;).createFloor();</span>
+<span class="fc" id="L31">        LanternaGUI g = new LanternaGUI(40, 30);</span>
+<span class="fc" id="L32">        FloorViewer v = new FloorViewer(g);</span>
+<span class="fc" id="L33">        FloorController fc = new FloorController(f, v);</span>
+
+<span class="fc" id="L35">        assertEquals(fc.getPlayerController(), this.floorController.getPlayerController());</span>
+<span class="fc" id="L36">    }</span>
+
+    @Test
+    void getGhostController() throws IOException, URISyntaxException, FontFormatException {
+<span class="fc" id="L40">        Floor f = new FloorBuilder(&quot;src/test/resources/floors/floor.map&quot;).createFloor();</span>
+<span class="fc" id="L41">        LanternaGUI g = new LanternaGUI(40, 30);</span>
+<span class="fc" id="L42">        FloorViewer v = new FloorViewer(g);</span>
+<span class="fc" id="L43">        FloorController fc = new FloorController(f, v);</span>
+
+<span class="fc" id="L45">        assertEquals(fc.getGhostController(), this.floorController.getGhostController());</span>
+<span class="fc" id="L46">    }</span>
+
+    @Test
+    void start() {
+        //TODO ARRANJAR FORMA DE REALIZAR ESTE TESTE
+<span class="fc" id="L51">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>
